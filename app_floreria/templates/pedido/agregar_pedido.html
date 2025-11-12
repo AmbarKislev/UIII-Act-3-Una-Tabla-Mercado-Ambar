@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Agregar Pedido | Florería{% endblock %}
+
+{% block contenido %}
+<h2 class="text-success mb-4">➕ Agregar Pedido</h2>
+
+<form method="POST" class="form-styled">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+        <div class="col">
+            <label for="nombre_cliente">Nombre del Cliente:</label>
+            <input type="text" name="nombre_cliente" id="nombre_cliente" class="form-control" placeholder="Ej. María López" required>
+        </div>
+        <div class="col">
+            <label for="nombre_producto">Nombre del Producto:</label>
+            <input type="text" name="nombre_producto" id="nombre_producto" class="form-control" placeholder="Ej. Arreglo de Rosas" required>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="fecha_pedido">Fecha de Pedido:</label>
+        <input type="date" name="fecha_pedido" id="fecha_pedido" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="fecha_entrega">Fecha de Entrega:</label>
+        <input type="date" name="fecha_entrega" id="fecha_entrega" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="total">Total:</label>
+        <input type="text" name="total" id="total" class="form-control" placeholder="Ej. 250.00">
+    </div>
+
+    <div class="mb-3">
+        <label for="estado">Estado:</label>
+        <input type="text" name="estado" id="estado" class="form-control" placeholder="Ej. En proceso">
+    </div>
+
+    <div class="mb-3">
+        <label for="metodo_pago">Método de pago:</label>
+        <input type="text" name="metodo_pago" id="metodo_pago" class="form-control" placeholder="Ej. Efectivo o Tarjeta">
+    </div>
+
+    <div class="mb-3">
+        <label for="direccion_envio">Dirección de envío:</label>
+        <input type="text" name="direccion_envio" id="direccion_envio" class="form-control" placeholder="Ej. Calle 12 #34, Centro">
+    </div>
+
+    <button type="submit" class="btn btn-success">💾 Guardar Pedido</button>
+</form>
+{% endblock %}

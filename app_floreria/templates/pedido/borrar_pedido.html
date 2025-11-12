@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Borrar Pedido{% endblock %}
+{% block contenido %}
+<h2 class="text-danger">🗑️ Borrar Pedido</h2>
+<p>¿Estás seguro de que deseas eliminar el pedido <strong>{{ pedido.id_pedido }}</strong> del cliente <strong>{{ pedido.cliente }}</strong>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a href="{% url 'ver_pedido' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
